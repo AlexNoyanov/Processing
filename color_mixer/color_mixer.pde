@@ -4,6 +4,7 @@
 // Added color number printing by AlexPC#2
 
 // Now letters "RED","GREEN" and "BLUE" equal the color intensivity
+// Changed by AlexPC#2
 
 PFont f;  // F is text font
 
