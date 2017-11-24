@@ -5,7 +5,7 @@
 
 // Now letters "RED","GREEN" and "BLUE" equal the color intensivity
 
-// Contacts: alex.noyanov@gmail.com
+// Mail: alex.noyanov@gmail.com
 
 PFont f;  // F is text font
 
