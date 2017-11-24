@@ -4,7 +4,8 @@
 // Added color number printing by AlexPC#2
 
 // Now letters "RED","GREEN" and "BLUE" equal the color intensivity
-// Changed by AlexPC#2
+
+// Contacts: alex.noyanov@gmail.com
 
 PFont f;  // F is text font
 
@@ -20,7 +21,7 @@ void setup() {
 }
 
 void draw() {
-  
+
     // Static text:
     fill(mouseX-200,0,0);
   text("RED",10,100);
@@ -30,14 +31,13 @@ void draw() {
 
     fill(0,0,mouseX+mouseY-400);
   text("BLUE",10,300);
-
-  
-  
+      
+      // Values:  
    // text(mouseX-200,10,100);
-   //  text(mouseX+mouseY-400,360,300);
-   //    text( mouseY-200,250,200);
+   // text(mouseX+mouseY-400,360,300);
+   // text( mouseY-200,250,200);
   
-  ellipse(400, 300, 400, 400);
+  ellipse(400, 300, 400, 400);      // Drawing circle
   if (mouseX > 200 && mouseX < 600) {
     if (mouseY> 100 && mouseY < 500) {
       fill(mouseX-200, mouseY-200, mouseX+mouseY-400);
