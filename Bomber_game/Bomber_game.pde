@@ -12,11 +12,14 @@ void drawBomb(int x,int y){    // Function for drawing beauterful bomb!
   ellipse(x,y,20,100);
   line(x+10,y+30,x+10+10,y+30+10);
     line(x-10,y+30,x-10-10,y+30+10);
+    
+    triangle(x+10,y+30,x+10+10,y+30+10,x+10,y+30+10);
+    
+    triangle(x-10,y+30,x-10-10,y+30+10,x-10,y+30+10);
 }
 
 // Class Bomber
   class Bomber{
- 
   //int xPos,yPos;
   void position(int xPos, int yPos){
     ellipse(xPos,yPos,10,10);
@@ -32,9 +35,6 @@ void setup()
   
   size(800,600);
  // Bomber1 = new Bomber();
-
-
-  
  
 }
 
