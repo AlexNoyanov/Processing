@@ -7,11 +7,11 @@
 // mail: alex.noyanov@gmail.com
 
 
-void drawBomb(int x,int y){    // Function for drawing beauterful bomb!
+void drawBomb(int x,int y,int scale ){    // Function for drawing beauterful bomb!
   
-  ellipse(x,y,20,100);
-  line(x+10,y+30,x+10+10,y+30+10);
-    line(x-10,y+30,x-10-10,y+30+10);
+  ellipse(x,y,20+scale,100+scale);
+  line(x+10,y+30,x+10+10+scale,y+30+10+scale);
+    line(x-10,y+30,x-10-10-scale,y+30+10+scale);
     
     triangle(x+10,y+30,x+10+10,y+30+10,x+10,y+30+10);
     
@@ -42,6 +42,8 @@ void draw()
 {
    background(100);  // Background color is grey
    //myBomber.position(10,10);
-   drawBomb(mouseX,mouseY);
+   drawBomb(mouseX,mouseY,100);
+   
+   
   
 }
