@@ -39,7 +39,7 @@ void draw(){
   
   for(int i = 0; i < faces.length;i++){
     
-    ellipse(faces[i].x+faces[i].x,faces[i].y+faces[i].y,100,100);
+    ellipse(faces[i].x,faces[i].y,100,100);  // Drawing ellipse
     
    rect(faces[i].x,faces[i].y, faces[i].width, faces[i].height);  // Drawing Rect! 
   }
