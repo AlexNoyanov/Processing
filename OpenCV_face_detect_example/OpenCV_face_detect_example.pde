@@ -10,7 +10,7 @@ void setup(){
   size(800,600);
   
   String[]  cameras = Capture.list();    // Showing enable camera
-  println(cameras[1]);                   // Print first camera settings
+  println(cameras[0]);                   // Print first camera settings
   video = new Capture(this,800/2,600/2); // Creating object video like Capture()
   opencv = new OpenCV(this,800/2,600/2); // Object opencv from OpenCV to get images
   
@@ -40,4 +40,10 @@ void draw(){
   for(int i = 0; i < faces.length;i++){
    rect(faces[i].x,faces[i].y, faces[i].width, faces[i].height);  // Drawing Rect! 
   }
+}
+
+
+
+void captureEvent(Capture c) {
+  c.read();
 }
