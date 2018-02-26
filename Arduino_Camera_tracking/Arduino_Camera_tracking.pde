@@ -10,6 +10,7 @@ import gab.opencv.*;
 import java.awt.Rectangle;
 
 
+
 void setup(){
   size(800,600);    // Window size
 }
