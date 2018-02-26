@@ -16,5 +16,7 @@ void setup(){
 }
 
 void draw(){
+  fill(250,0,0);
+  line(800/2,0,800/2,600);
   
 }
