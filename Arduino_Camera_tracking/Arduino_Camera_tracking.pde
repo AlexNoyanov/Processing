@@ -10,6 +10,12 @@ import gab.opencv.*;
 import java.awt.Rectangle;
 import processing.video.*;
 
+// For Arduino:
+import processing.serial.*;
+import cc.arduino.*;
+Arduino arduino;
+
+// OpenCV:
 OpenCV opencv;
 Rectangle[] faces;
 Capture video;
@@ -17,6 +23,14 @@ Capture video;
 void setup(){
   size(800,600);             // Window size
   background(0,100,250);     // Background color
+   
+     // Prints out the available serial ports.
+  println(Arduino.list());
+  
+  // Modify this line, by changing the "0" to the index of the serial
+  // port corresponding to your Arduino board (as it appears in the list
+  // printed by the line above).
+  arduino = new Arduino(this, Arduino.list()[0], 57600); 
    
   video = new Capture(this, 640/2, 480/2);
   opencv = new OpenCV(this, 640/2, 480/2);
