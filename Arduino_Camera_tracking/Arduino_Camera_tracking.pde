@@ -3,7 +3,7 @@
 
 //  By Alex Noyanov
 
-// The 26th of Febraury
+// The 26th of Febraury 2018
 
 // Libraries:
 import gab.opencv.*;
@@ -36,10 +36,17 @@ void setup(){
   opencv = new OpenCV(this, 640/2, 480/2);
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
 
+    // Configure digital pins 8 and 9 to control servo motors.
+  arduino.pinMode(8, Arduino.SERVO);
+  arduino.pinMode(9, Arduino.SERVO);
+
   video.start();
 }
 
 void draw(){
+    // Move servo from mouse for testing:
+    arduino.servoWrite(7, constrain(mouseX / 2, 0, 180));    
+    arduino.servoWrite(4, constrain(180 - mouseX / 2, 0, 180));
   
   scale(2);
   opencv.loadImage(video);
