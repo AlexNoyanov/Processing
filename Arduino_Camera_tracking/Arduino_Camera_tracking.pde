@@ -53,11 +53,27 @@ void draw(){
   opencv.loadImage(video);
 
   image(video, 0, 0 );
-
   
   fill(250,0,0);
   line(800/2,0,800/2,600);
   
   line(0,600/2,800,600/2);
   
+  
+  // OpenCV video capture:
+  noFill();
+  stroke(0, 255, 0);
+  strokeWeight(3);
+  Rectangle[] faces = opencv.detect();
+  println(faces.length);
+
+  for (int i = 0; i < faces.length; i++) {
+    println(faces[i].x + "," + faces[i].y);
+    rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height);
+  }
+}
+
+void captureEvent(Capture c) {
+  c.read();
+}
 }
