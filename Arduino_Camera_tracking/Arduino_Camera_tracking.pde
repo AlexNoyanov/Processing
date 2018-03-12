@@ -44,6 +44,7 @@ void setup(){
 }
 
 void draw(){
+  
     // Move servo from mouse for testing:
     arduino.servoWrite(7, constrain(mouseX / 2, 0, 180));    
     arduino.servoWrite(4, constrain(180 - mouseX / 2, 0, 180));
