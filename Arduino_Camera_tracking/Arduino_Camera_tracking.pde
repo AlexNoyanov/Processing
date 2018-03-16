@@ -32,8 +32,8 @@ void setup(){
   // printed by the line above).
   arduino = new Arduino(this, Arduino.list()[0], 57600); 
    
-  video = new Capture(this, 640/2, 480/2);
-  opencv = new OpenCV(this, 640/2, 480/2);
+  video = new Capture(this, 800/2, 600/2);
+  opencv = new OpenCV(this, 800/2, 600/2);
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
 
     // Configure digital pins 8 and 9 to control servo motors.
@@ -76,5 +76,4 @@ void draw(){
 
 void captureEvent(Capture c) {
   c.read();
-}
 }
