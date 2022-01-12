@@ -4,7 +4,10 @@
 import blobDetection.*;
 
 BlobDetection theBlobDetection;
-PGraphics img;
+//PGraphics img;
+PImage img;  // Declare variable "a" of type PImage
+
+
 
 // ==================================================
 // setup()
@@ -15,17 +18,18 @@ void setup()
   // img = createGraphics(640, 480,P2D);
 
   // Works with Processing 2.0b3
-  img = createGraphics(640, 480);
-
-  img.beginDraw();
-  img.background(255);
-  img.noStroke();
-  img.fill(0);
-  for (int i=0;i<20;i++) {
-    float r = random(50);
-    img.ellipse(random(img.width), random(img.height), r, r);
-  }
-  img.endDraw();
+ // img = createGraphics(640, 480);
+  //img = loadImage("stars.gif");  // Load the image into the program  
+  img = loadImage("1-meteor.jpg");  // Load the image into the program  
+  //img.beginDraw();
+  //img.background(255);
+  //img.noStroke();
+  //img.fill(0);
+  //for (int i=0;i<20;i++) {
+  //  float r = random(50);
+  //  img.ellipse(random(img.width), random(img.height), r, r);
+  //}
+  //img.endDraw();
 
   theBlobDetection = new BlobDetection(img.width, img.height);
   theBlobDetection.setPosDiscrimination(false);
@@ -50,6 +54,7 @@ void draw()
 // ==================================================
 void drawBlobsAndEdges(boolean drawBlobs, boolean drawEdges)
 {
+  int starNumber = 0;
   noFill();
   Blob b;
   EdgeVertex eA, eB;
@@ -84,6 +89,9 @@ void drawBlobsAndEdges(boolean drawBlobs, boolean drawEdges)
         b.xMin*width, b.yMin*height, 
         b.w*width, b.h*height
           );
+          textSize(16);
+          text(starNumber,b.xMin*width,b.yMin*height);
+          starNumber++;
       }
     }
   }
