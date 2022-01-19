@@ -1,17 +1,21 @@
-//  Star detecting on the image:
-
+//   Star detecting on the image:
+/*
+    o Searching for objects on the night sky
+    o Giving each one of them the name
+    o Finding the biggest one 
+    o Generating the top layer with all data
+  
+*/
+//   Created by Alexander Noyanov: @AlexNoyanov
 
 import blobDetection.*;
 
 BlobDetection theBlobDetection;
 //PGraphics img;
-PImage img;  // Declare variable "a" of type PImage
+PImage img;    // Declare variable "a" of type PImage
 
+PGraphics starLayer;
 
-
-// ==================================================
-// setup()
-// ==================================================
 void setup()
 {
   // Works with Processing 1.5
@@ -20,7 +24,9 @@ void setup()
   // Works with Processing 2.0b3
  // img = createGraphics(640, 480);
   //img = loadImage("stars.gif");  // Load the image into the program  
-  img = loadImage("1-meteor.jpg");  // Load the image into the program  
+  img = loadImage("1-meteor.jpg");  // Load the image into the program 
+
+  
   //img.beginDraw();
   //img.background(255);
   //img.noStroke();
@@ -46,15 +52,17 @@ void setup()
 void draw()
 {
   image(img, 0, 0, width, height);
-  drawBlobsAndEdges(true, true);
+  detectStart(true, true);
 }
 
 // ==================================================
-// drawBlobsAndEdges()
+// To detect all objects in the night sky
 // ==================================================
-void drawBlobsAndEdges(boolean drawBlobs, boolean drawEdges)
+void detectStart(boolean drawBlobs, boolean drawEdges)
 {
   int starNumber = 0;
+  int maxW = 1;
+  int maxH = 1;
   noFill();
   Blob b;
   EdgeVertex eA, eB;
@@ -63,8 +71,8 @@ void drawBlobsAndEdges(boolean drawBlobs, boolean drawEdges)
     b=theBlobDetection.getBlob(n);
     if (b!=null)
     {
-      // Edges
-      if (drawEdges)
+      // Blobs
+      if (drawBlobs)
       {
         strokeWeight(2);
         stroke(0, 255, 0);
@@ -80,8 +88,8 @@ void drawBlobsAndEdges(boolean drawBlobs, boolean drawEdges)
         }
       }
 
-      // Blobs
-      if (drawBlobs)
+      // Edges
+      if (drawEdges)
       {
         strokeWeight(1);
         stroke(255, 0, 0);
@@ -90,7 +98,13 @@ void drawBlobsAndEdges(boolean drawBlobs, boolean drawEdges)
         b.w*width, b.h*height
           );
           textSize(16);
-          text(starNumber,b.xMin*width,b.yMin*height);
+          // Finding big objects:
+          if(b.w*width - b.xMin*width >= maxW || b.h*height - b.yMin*height >= maxH){
+             textSize(20);
+             text("ASTEROID",b.xMin*width,b.yMin*height);
+            }else{  
+              text(starNumber,b.xMin*width,b.yMin*height);
+            }
           starNumber++;
       }
     }
