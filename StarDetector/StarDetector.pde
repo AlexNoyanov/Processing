@@ -44,15 +44,14 @@ void setup()
 
   // Size of applet
   size(800, 600);
-}
-
-// ==================================================
-// draw()
-// ==================================================
-void draw()
-{
   image(img, 0, 0, width, height);
   detectStart(true, true);
+}
+
+void draw()
+{
+  //image(img, 0, 0, width, height);
+  //detectStart(true, true);
 }
 
 // ==================================================
